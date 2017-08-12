@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="30c7a5ac-7d13-4b79-b950-d57d38e64d8a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/HA.Services/FullTextService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="d03d0035-73c6-4a18-8bbe-a00a71e146fb" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/HA.Services/FullTextService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="b4b56c5b-24d2-4414-ba92-d302942f3c0a" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/HA.Services/FullTextService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ad322a07-4ff5-45d1-907e-78de0f0adc3d" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/HA.Services/FullTextService/mex" />
+    <MetadataFile FileName="HA.Services.xsd" MetadataType="Schema" ID="0e58f29a-e584-4da8-9853-1d0eae3dc51a" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/HA.Services/FullTextService/mex" />
+    <MetadataFile FileName="HA.Services.Objects.xsd" MetadataType="Schema" ID="5b08a26b-63b3-4b0b-ad45-73933249fbde" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/HA.Services/FullTextService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="c388f8a4-c7b8-4b3a-87f7-d60d66359c93" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/HA.Services/FullTextService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

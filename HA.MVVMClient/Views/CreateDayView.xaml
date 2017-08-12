@@ -1,0 +1,41 @@
+﻿<Window x:Class="HA.MVVMClient.Views.CreateDayView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:adr="clr-namespace:HA.MVVMClient.Infrastructure" Height="300" Width="400" Title="Zakládaní směny" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" ResizeMode="NoResize" Icon="/HA.MVVMClient;component/Images/date_add.png">
+    <adr:ProgressAdorner IsAdornerVisible="{Binding Path=Busy}">
+        <adr:ProgressAdorner.AdornerContent>
+            <Border>
+                <Border.Background>
+                    <SolidColorBrush  Opacity="0.5" Color="Azure"></SolidColorBrush>
+                </Border.Background>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14">Zpracovávám...</TextBlock>
+            </Border>
+        </adr:ProgressAdorner.AdornerContent>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label>Datum:</Label>
+            <DatePicker Grid.Row="1" SelectedDate="{Binding Path=SelectedDate}" ></DatePicker>
+            <Label Grid.Column="1">Služba:</Label>
+            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal">
+                <RadioButton IsChecked="{Binding Path=IsDay}">Denní</RadioButton>
+                <RadioButton IsChecked="{Binding Path=IsNight}">Noční</RadioButton>
+            </StackPanel>
+            <Label Grid.Row="2">Dodatečná informace:</Label>
+            <TextBox Grid.Row="3" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding Path=Description}"></TextBox>
+            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Command="{Binding Path=CreateCommand}" CommandParameter="{Binding ElementName=window}">Založit</Button>
+
+            </StackPanel>
+        </Grid>
+    </adr:ProgressAdorner>
+</Window>

@@ -1,0 +1,120 @@
+﻿<Window x:Class="HA.MVVMClient.Views.UserView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:adr="clr-namespace:HA.MVVMClient.Infrastructure"
+        Title="Správa učtu" Height="400" Width="400" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" ShowInTaskbar="False" Icon="/HA.MVVMClient;component/Images/user.png">
+    <adr:ProgressAdorner IsAdornerVisible="{Binding Path=Busy}">
+        <adr:ProgressAdorner.AdornerContent>
+            <Border>
+                <Border.Background>
+                    <SolidColorBrush  Opacity="0.5" Color="Azure"></SolidColorBrush>
+                </Border.Background>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14">Zpracovávám...</TextBlock>
+            </Border>
+        </adr:ProgressAdorner.AdornerContent>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ToolBar Grid.Row="0" Grid.ColumnSpan="3">
+                <Button Content="Uložit" Command="{Binding Path=SaveCommand}"></Button>
+                <Button Content="Nový" Command="{Binding Path=NewCommand}"></Button>
+                <Button Content="Smazat" Command="{Binding Path=DeleteCommand}"></Button>
+            </ToolBar>
+
+            <Label Grid.Row="1">Uživatelské jméno:</Label>
+            <TextBox Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding Path=UserName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=Enabled}"></TextBox>
+
+
+            <Label Grid.Row="3">Heslo:</Label>
+            <Button Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Content="Reset hesla" Command="{Binding Path=ResetPasswordCommand}"></Button>
+            <TextBox Grid.Row="4" Grid.ColumnSpan="2" IsReadOnly="True" Text="{Binding Path=Password}"/>
+            <Label Grid.Row="5">Oddělení:</Label>
+            <ComboBox Grid.Row="6" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Detachments}" SelectedItem="{Binding Path=SelectedDetachment, ValidatesOnDataErrors=True}" DisplayMemberPath="Name">
+                <ComboBox.ItemContainerStyle>
+                    <Style>
+                        <Setter Property ="AutomationProperties.Name" Value="{Binding Name}"/>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+            <Label Grid.Row="7">Zaměstnanec:</Label>
+            <ComboBox Grid.Row="8" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Workers}" SelectedItem="{Binding Path=SelectedWorker}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=SapNumber}" Padding="0,0,5,0"></TextBlock>
+                            <TextBlock Text="{Binding Path=FirstName}" Padding="0,0,5,0"></TextBlock>
+                            <TextBlock Text="{Binding Path=LastName}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+                <ComboBox.ItemContainerStyle>
+                    <Style>
+                        <Setter Property ="AutomationProperties.Name" Value="{Binding SapNumber}"/>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+            <Label Grid.Row="9">Uživatelské role:</Label>
+            <ListView Grid.Row="10" Grid.ColumnSpan="2" ItemsSource="{Binding Path=UserInRole, Mode=TwoWay}" SelectedItem="{Binding Path=SelectedUserInRole}" DisplayMemberPath="Name">
+                <ListView.ItemContainerStyle>
+                    <Style>
+                        <Setter Property ="AutomationProperties.Name" Value="{Binding Name}"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+
+            <Grid Grid.Row="11" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label>Role:</Label>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <ComboBox IsEditable="True" Width="70" ItemsSource="{Binding Path=Roles}" SelectedItem="{Binding Path=SelectedRole}" DisplayMemberPath="Name">
+                        <ComboBox.ItemContainerStyle>
+                            <Style>
+                                <Setter Property ="AutomationProperties.Name" Value="{Binding Name}"/>
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
+                    </ComboBox>
+                    <Button Content="Vložit" Command="{Binding Path=InsertRoleCommand}"></Button>
+                    <Button Content="Odebrat" Command="{Binding Path=RemoveRoleCommand}"></Button>
+                </StackPanel>
+            </Grid>
+            <Label Grid.Row="1" Grid.Column="2">Uživatele:</Label>
+            <ListView Grid.Row="2" Grid.Column="2" Grid.RowSpan="10" SelectionMode="Single" ItemsSource="{Binding Path=Users}" SelectedItem="{Binding Path=SelectedUser}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                            <Image Source="/HA.MVVMClient;component/Images/user.png" Height="16" Width="16" Margin="5,0"></Image>
+                            <TextBlock Text="{Binding Path=Name}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style>
+                        <Setter Property ="AutomationProperties.Name" Value="{Binding Name}"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListView>
+
+            <!--<GridSplitter Grid.Column="1" Grid.Row="1" Grid.RowSpan="7" Width="2"></GridSplitter>-->
+        </Grid>
+    </adr:ProgressAdorner>
+</Window>

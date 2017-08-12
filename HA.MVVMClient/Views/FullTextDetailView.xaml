@@ -1,0 +1,108 @@
+﻿<Window x:Class="HA.MVVMClient.Views.FullTextDetailView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Detail práce" Height="400" Width="600" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" Icon="/HA.MVVMClient;component/Images/magnifying.png">
+    <Grid> 
+        <TabControl>
+            <TabItem Header="Přehled">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>   
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>    
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions> 
+                    
+                    <GroupBox Header="Datum">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                        <Label>Datum:</Label>
+                        <CheckBox Style="{StaticResource DayStyle }" Grid.Column="1" IsChecked="{Binding Path=DateIsNight}" IsEnabled="False" VerticalAlignment="Center"></CheckBox>
+                            <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding Path=Date, StringFormat=dd.MMMM.yyyy, ConverterCulture=cs-CZ}"></TextBlock>
+                            <Label Grid.Row="1">Dodatečná informace:</Label>
+                        <TextBox Grid.Row="2" Grid.ColumnSpan="3" IsReadOnly="True" TextWrapping="Wrap" Text="{Binding Path=DateDescription}"></TextBox>
+                        </Grid>
+                    </GroupBox>
+
+
+                    <GroupBox Header="Typ opravy" Grid.Row="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label>Typ opravy:</Label>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path=WorkTypeName}"></TextBlock>
+                            <Label Grid.Row="1">Dodatečná informace:</Label>
+                            <TextBox Grid.Row="2" Grid.ColumnSpan="3" IsReadOnly="True" TextWrapping="Wrap" Text="{Binding Path=WorkTypeDescription}"></TextBox>
+                        </Grid>
+                    </GroupBox>
+
+
+                    <GroupBox Header="Vozidlo" Grid.Column="1" Grid.RowSpan="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label>Vozidlo:</Label>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path=VehicleNumber}"></TextBlock>
+                            <Label Grid.Row="1">Dodatečná informace:</Label>
+                            <TextBox Grid.Row="2" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="Wrap" Text="{Binding Path=VehicleDescription}"></TextBox>
+                        </Grid>
+                    </GroupBox> 
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Header="Práce">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0">Popis závady:</Label>
+                    <TextBox Grid.Row="1" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding Path=WorkFaultDescription}"></TextBox>
+                    <Label Grid.Row="2">Způsob opravy:</Label>
+                    <TextBox Grid.Row="3" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding Path=WorkCauseDescription}"></TextBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Docházka">
+                <DataGrid AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Path=Attendances}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Jméno" Binding="{Binding Path=FirstName}" Width="Auto"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Příjmení" Binding="{Binding Path=LastName}" Width="Auto"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Číslo SAP" Binding="{Binding Path=SapNumber}" Width="Auto"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Turnus" Binding="{Binding Path=WorkerTour}" Width="Auto"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Stav" Binding="{Binding Path=WorkerState}" Width="Auto"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Dodatečná informace" Binding="{Binding Path=Description}" Width="*"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

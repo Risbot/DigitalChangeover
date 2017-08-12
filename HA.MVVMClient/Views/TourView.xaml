@@ -1,0 +1,95 @@
+﻿<Window x:Class="HA.MVVMClient.Views.TourView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="clr-namespace:Xceed.Wpf.Toolkit;assembly=WPFToolkit.Extended"
+        xmlns:adr="clr-namespace:HA.MVVMClient.Infrastructure"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        Title="Turnusy" Height="300" Width="400" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" Icon="/HA.MVVMClient;component/Images/time.png">
+  
+    <adr:ProgressAdorner IsAdornerVisible="{Binding Path=Busy}">
+        <adr:ProgressAdorner.AdornerContent>
+            <Border>
+                <Border.Background>
+                    <SolidColorBrush  Opacity="0.5" Color="Azure"></SolidColorBrush>
+                </Border.Background>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14">Zpracovávám...</TextBlock>
+            </Border>
+        </adr:ProgressAdorner.AdornerContent>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ToolBar Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <Button Content="Uložit" Command="{Binding Path=SaveCommand}"></Button>
+                <Button Content="Nový" Command="{Binding Path=NewCommand}"></Button>
+                <Button Content="Smazat" Command="{Binding Path=DeleteCommand}"></Button>
+            </ToolBar>
+
+            <Label Grid.Row="1" Grid.Column="0">Počátek práce:</Label>
+            <Label Grid.Row="1" Grid.Column="1">Turnusy:</Label>
+            <Label Grid.Row="3" Grid.Column="0">Konec práce:</Label>
+            <Label Grid.Row="5" Grid.Column="0">Dodatečná informace:</Label>
+
+            <!--<xctk:TimePicker Grid.Row="4" Grid.Column="0" Value="{Binding Path=EndTime}"></xctk:TimePicker>
+        <xctk:TimePicker Grid.Row="2" Grid.Column="0" Value="{Binding Path=StartTime}"></xctk:TimePicker>-->
+
+            <!--<TextBox Grid.Row="4" Grid.Column="0" Text="{Binding Path=EndTime, StringFormat={}{0:hh\:mm}, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=Enabled}"></TextBox>-->
+            <!--<TextBox Grid.Row="2" Grid.Column="0" Text="{Binding Path=StartTime, StringFormat=hh\\:mm, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=Enabled}"></TextBox>-->
+
+            <!--<xctk:RichTextBox Grid.Row="6" Grid.Column="0" Text="{Binding Path=Description}">       
+            <xctk:RichTextBoxFormatBarManager.FormatBar>              
+                <xctk:RichTextBoxFormatBar ></xctk:RichTextBoxFormatBar>
+            </xctk:RichTextBoxFormatBarManager.FormatBar>
+        </xctk:RichTextBox>-->
+
+            <xctk:MaskedTextBox  Grid.Row="2" Grid.Column="0" Mask="00:00"  Value="{Binding Path=StartTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ValueDataType="{x:Type s:String}" IsEnabled="{Binding Path=Enabled}">
+                
+            </xctk:MaskedTextBox>
+            <xctk:MaskedTextBox  Grid.Row="4" Grid.Column="0" Mask="00:00" Value="{Binding Path=EndTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ValueDataType="{x:Type s:String}" IsEnabled="{Binding Path=Enabled}" ></xctk:MaskedTextBox>
+            <TextBox Grid.Row="6" Grid.Column="0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+            <ListBox Grid.Row="2" Grid.Column="1" Grid.RowSpan="5" SelectionMode="Single" ItemsSource="{Binding Path=Tours}" SelectedItem="{Binding Path=SelectedTour}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/HA.MVVMClient;component/Images/time.png" Height="16" Width="16" Margin="5,0"></Image>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0,0:hh\:mm}--{1,0:hh\:mm}">
+                                        <Binding Path="StartTime"></Binding>
+                                        <Binding Path="EndTime"></Binding>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style>
+                        <Setter Property ="AutomationProperties.Name">
+                            <Setter.Value>
+                                <MultiBinding StringFormat="{}{0,0:hh\:mm}--{1,0:hh\:mm}">
+                                    <Binding Path="StartTime"></Binding>
+                                    <Binding Path="EndTime"></Binding>
+                                </MultiBinding>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+            <GridSplitter Grid.Column="0" Grid.Row="2" Grid.RowSpan="5" Width="2"></GridSplitter>
+        </Grid>
+    </adr:ProgressAdorner>
+</Window>
+
+

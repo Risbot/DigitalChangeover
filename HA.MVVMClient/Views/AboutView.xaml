@@ -1,0 +1,35 @@
+﻿<Window x:Class="HA.MVVMClient.Views.AboutView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:adr="clr-namespace:HA.MVVMClient.Infrastructure"
+        Title="O programu" Height="300" Width="420" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" ResizeMode="NoResize" Icon="/HA.MVVMClient;component/Images/about.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center">
+            <Label Name="Product" FontSize="25" />
+            <Label Name="Version" FontSize="16" />
+            <Label Name="Copyright" FontSize="16" />
+            <Label FontSize="16">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Podpora "/>
+                    <TextBlock>
+                        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="mailto:3d.mistr@gmail.com" >3d.mistr@gmail.com</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+            </Label>
+            
+        </StackPanel>
+        <Image Width="128" Height="128" HorizontalAlignment="Right" Source="/HA.MVVMClient;component/Images/book.png"/>
+    
+        <TextBox Name="License" Grid.Row="1" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Margin="5" 
+         Text="Všechna práva vyhrazena. Tento produkt lze zdarma používat v oddělení Zkušebna ČD a.s. Se sídlem v Chodovská 1476/3b 140 00  Praha-Michle. Bez předchozího písemného souhlasu autora je zakázáno jakékoliv další šíření tohoto softwaru, úpravu nebo instalace na jiná oddělení, nebo do jiných firem. Autor nebere na sebe žádnou odpovědnost za připadne škody vzniklé při používaní tohoto produktu."        
+         />
+
+        <Button Grid.Row="2" HorizontalAlignment="Right" Width="80" Margin="5" Content="OK" Click="Click"/>
+          
+    </Grid>
+</Window>

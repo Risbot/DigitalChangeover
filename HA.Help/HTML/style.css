@@ -1,0 +1,21 @@
+﻿<style type="text/css">
+    body{
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:0.8em
+	}
+h2 {
+	color : green;
+	text-align : center;
+}
+.img {
+	text-align: center;
+}
+body > div {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+em {
+	background-color: #000000;
+	color: #FFFFFF;
+}
+</style>

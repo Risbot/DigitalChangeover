@@ -1,0 +1,1275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Attendances">
+          <Key>
+            <PropertyRef Name="AttendanceDateID" />
+            <PropertyRef Name="AttendanceWorkerID" />
+          </Key>
+          <Property Name="AttendanceDateID" Type="bigint" Nullable="false" />
+          <Property Name="AttendanceWorkerID" Type="int" Nullable="false" />
+          <Property Name="AttendanceWorkerStateID" Type="int" Nullable="false" />
+          <Property Name="AttendanceWorkerTourID" Type="int" Nullable="false" />
+          <Property Name="AttendanceDescription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Dates">
+          <Key>
+            <PropertyRef Name="DateID" />
+          </Key>
+          <Property Name="DateID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateDate" Type="date" Nullable="false" />
+          <Property Name="DateIsNight" Type="bit" Nullable="false" />
+          <Property Name="DateDescription" Type="nvarchar(max)" />
+          <Property Name="DateDetachmentID" Type="int" Nullable="false" />
+          <Property Name="DateIsClosed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Detachments">
+          <Key>
+            <PropertyRef Name="DetachmentID" />
+          </Key>
+          <Property Name="DetachmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DetachmentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DetachmentDescription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Changeovers">
+          <Key>
+            <PropertyRef Name="ChangeoverID" />
+          </Key>
+          <Property Name="ChangeoverID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChangeoverDateID" Type="bigint" Nullable="false" />
+          <Property Name="ChangeoverVehicleID" Type="int" Nullable="false" />
+          <Property Name="ChangeoverWorkTypeID" Type="int" Nullable="false" />
+          <Property Name="ChangeoverDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ChangeoverDetachmentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="RoleDescription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tours">
+          <Key>
+            <PropertyRef Name="TourID" />
+          </Key>
+          <Property Name="TourID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TourStartTime" Type="time" Precision="0" Nullable="false" />
+          <Property Name="TourEndTime" Type="time" Precision="0" Nullable="false" />
+          <Property Name="TourDescription" Type="nvarchar(max)" />
+          <Property Name="TourDetachmentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInRole">
+          <Key>
+            <PropertyRef Name="UserInRoleRoleID" />
+            <PropertyRef Name="UserInRoleUserID" />
+          </Key>
+          <Property Name="UserInRoleRoleID" Type="int" Nullable="false" />
+          <Property Name="UserInRoleUserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserWorkerID" Type="int" />
+          <Property Name="UserDetachmentID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserPassword" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserDescription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Vehicles">
+          <Key>
+            <PropertyRef Name="VehicleID" />
+          </Key>
+          <Property Name="VehicleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VehicleNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VehicleDescription" Type="nvarchar(max)" />
+          <Property Name="VehicleDetachmentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkerInTour">
+          <Key>
+            <PropertyRef Name="WorkerInTourWorkerID" />
+            <PropertyRef Name="WorkerInTourTourID" />
+          </Key>
+          <Property Name="WorkerInTourWorkerID" Type="int" Nullable="false" />
+          <Property Name="WorkerInTourTourID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Workers">
+          <Key>
+            <PropertyRef Name="WorkerID" />
+          </Key>
+          <Property Name="WorkerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkerFirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="WorkerLastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="WorkerServiceNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="WorkerSapNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="WorkerServiceEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkerPersonalEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkerServicePhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="WorkerPersonalPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="WorkerDescription" Type="nvarchar(max)" />
+          <Property Name="WorkerPhoto" Type="image" />
+          <Property Name="WorkerDetachmentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkerStates">
+          <Key>
+            <PropertyRef Name="WorkerStateID" />
+          </Key>
+          <Property Name="WorkerStateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkerStateName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="WorkerStateDescription" Type="nvarchar(max)" />
+          <Property Name="WorkerStateDetachmentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Works">
+          <Key>
+            <PropertyRef Name="WorkID" />
+          </Key>
+          <Property Name="WorkID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkVehicleID" Type="int" Nullable="false" />
+          <Property Name="WorkWorkTypeID" Type="int" Nullable="false" />
+          <Property Name="WorkDateID" Type="bigint" Nullable="false" />
+          <Property Name="WorkFaultDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="WorkCauseDescription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="WorkTypes">
+          <Key>
+            <PropertyRef Name="WorkTypeID" />
+          </Key>
+          <Property Name="WorkTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkTypeName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="WorkTypeDescription" Type="nvarchar(max)" />
+          <Property Name="WorkTypeDetachmentID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Attendances_Dates">
+          <End Role="Dates" Type="Self.Dates" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Attendances" Type="Self.Attendances" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dates">
+              <PropertyRef Name="DateID" />
+            </Principal>
+            <Dependent Role="Attendances">
+              <PropertyRef Name="AttendanceDateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendances_Tours">
+          <End Role="Tours" Type="Self.Tours" Multiplicity="1" />
+          <End Role="Attendances" Type="Self.Attendances" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="TourID" />
+            </Principal>
+            <Dependent Role="Attendances">
+              <PropertyRef Name="AttendanceWorkerTourID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendances_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Attendances" Type="Self.Attendances" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="WorkerID" />
+            </Principal>
+            <Dependent Role="Attendances">
+              <PropertyRef Name="AttendanceWorkerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendances_WorkerStates">
+          <End Role="WorkerStates" Type="Self.WorkerStates" Multiplicity="1" />
+          <End Role="Attendances" Type="Self.Attendances" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkerStates">
+              <PropertyRef Name="WorkerStateID" />
+            </Principal>
+            <Dependent Role="Attendances">
+              <PropertyRef Name="AttendanceWorkerStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dates_Detachments">
+          <End Role="Detachments" Type="Self.Detachments" Multiplicity="1" />
+          <End Role="Dates" Type="Self.Dates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="Dates">
+              <PropertyRef Name="DateDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Changeovers_Dates">
+          <End Role="Dates" Type="Self.Dates" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Changeovers" Type="Self.Changeovers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dates">
+              <PropertyRef Name="DateID" />
+            </Principal>
+            <Dependent Role="Changeovers">
+              <PropertyRef Name="ChangeoverDateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Changeovers_Detachments">
+          <End Role="Detachments" Type="Self.Detachments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Changeovers" Type="Self.Changeovers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="Changeovers">
+              <PropertyRef Name="ChangeoverDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Changeovers_Vehicles">
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Changeovers" Type="Self.Changeovers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="VehicleID" />
+            </Principal>
+            <Dependent Role="Changeovers">
+              <PropertyRef Name="ChangeoverVehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Changeovers_WorkTypes">
+          <End Role="WorkTypes" Type="Self.WorkTypes" Multiplicity="1" />
+          <End Role="Changeovers" Type="Self.Changeovers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkTypes">
+              <PropertyRef Name="WorkTypeID" />
+            </Principal>
+            <Dependent Role="Changeovers">
+              <PropertyRef Name="ChangeoverWorkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tours_Detachments">
+          <End Role="Detachments" Type="Self.Detachments" Multiplicity="1" />
+          <End Role="Tours" Type="Self.Tours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="Tours">
+              <PropertyRef Name="TourDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInRole_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="UserInRole" Type="Self.UserInRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="UserInRole">
+              <PropertyRef Name="UserInRoleRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInRole_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserInRole" Type="Self.UserInRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserInRole">
+              <PropertyRef Name="UserInRoleUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Detachments">
+          <End Role="Detachments" Type="Self.Detachments" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="WorkerID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserWorkerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicles_Detachments">
+          <End Role="Detachments" Type="Self.Detachments" Multiplicity="1" />
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="Vehicles">
+              <PropertyRef Name="VehicleDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerInTour_Tours">
+          <End Role="Tours" Type="Self.Tours" Multiplicity="1" />
+          <End Role="WorkerInTour" Type="Self.WorkerInTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="TourID" />
+            </Principal>
+            <Dependent Role="WorkerInTour">
+              <PropertyRef Name="WorkerInTourTourID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerInTour_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkerInTour" Type="Self.WorkerInTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="WorkerID" />
+            </Principal>
+            <Dependent Role="WorkerInTour">
+              <PropertyRef Name="WorkerInTourWorkerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workers_Detachments">
+          <End Role="Detachments" Type="Self.Detachments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="WorkerDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerStates_Detachments">
+          <End Role="Detachments" Type="Self.Detachments" Multiplicity="1" />
+          <End Role="WorkerStates" Type="Self.WorkerStates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="WorkerStates">
+              <PropertyRef Name="WorkerStateDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Dates">
+          <End Role="Dates" Type="Self.Dates" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dates">
+              <PropertyRef Name="DateID" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="WorkDateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Vehicles">
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="VehicleID" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="WorkVehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_WorkTypes">
+          <End Role="WorkTypes" Type="Self.WorkTypes" Multiplicity="1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkTypes">
+              <PropertyRef Name="WorkTypeID" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="WorkWorkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkTypes_Detachments">
+          <End Role="Detachments" Type="Self.Detachments" Multiplicity="1" />
+          <End Role="WorkTypes" Type="Self.WorkTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="WorkTypes">
+              <PropertyRef Name="WorkTypeDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Months" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="year" Type="int" Mode="In" />
+          <Parameter Name="detachmentID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Years" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="detachmentID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Attendances" EntityType="Self.Attendances" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dates" EntityType="Self.Dates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detachments" EntityType="Self.Detachments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Changeovers" EntityType="Self.Changeovers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tours" EntityType="Self.Tours" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInRole" EntityType="Self.UserInRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkerInTour" EntityType="Self.WorkerInTour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkerStates" EntityType="Self.WorkerStates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Works" EntityType="Self.Works" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkTypes" EntityType="Self.WorkTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Attendances_Dates" Association="Self.FK_Attendances_Dates">
+            <End Role="Dates" EntitySet="Dates" />
+            <End Role="Attendances" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendances_Tours" Association="Self.FK_Attendances_Tours">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="Attendances" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendances_Workers" Association="Self.FK_Attendances_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Attendances" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendances_WorkerStates" Association="Self.FK_Attendances_WorkerStates">
+            <End Role="WorkerStates" EntitySet="WorkerStates" />
+            <End Role="Attendances" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dates_Detachments" Association="Self.FK_Dates_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="Dates" EntitySet="Dates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Changeovers_Dates" Association="Self.FK_Changeovers_Dates">
+            <End Role="Dates" EntitySet="Dates" />
+            <End Role="Changeovers" EntitySet="Changeovers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Changeovers_Detachments" Association="Self.FK_Changeovers_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="Changeovers" EntitySet="Changeovers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Changeovers_Vehicles" Association="Self.FK_Changeovers_Vehicles">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Changeovers" EntitySet="Changeovers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Changeovers_WorkTypes" Association="Self.FK_Changeovers_WorkTypes">
+            <End Role="WorkTypes" EntitySet="WorkTypes" />
+            <End Role="Changeovers" EntitySet="Changeovers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tours_Detachments" Association="Self.FK_Tours_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="Tours" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInRole_Roles" Association="Self.FK_UserInRole_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UserInRole" EntitySet="UserInRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInRole_Users" Association="Self.FK_UserInRole_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserInRole" EntitySet="UserInRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Detachments" Association="Self.FK_Users_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Workers" Association="Self.FK_Users_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Detachments" Association="Self.FK_Vehicles_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="Vehicles" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerInTour_Tours" Association="Self.FK_WorkerInTour_Tours">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="WorkerInTour" EntitySet="WorkerInTour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerInTour_Workers" Association="Self.FK_WorkerInTour_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="WorkerInTour" EntitySet="WorkerInTour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workers_Detachments" Association="Self.FK_Workers_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerStates_Detachments" Association="Self.FK_WorkerStates_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="WorkerStates" EntitySet="WorkerStates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Dates" Association="Self.FK_Works_Dates">
+            <End Role="Dates" EntitySet="Dates" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Vehicles" Association="Self.FK_Works_Vehicles">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_WorkTypes" Association="Self.FK_Works_WorkTypes">
+            <End Role="WorkTypes" EntitySet="WorkTypes" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkTypes_Detachments" Association="Self.FK_WorkTypes_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="WorkTypes" EntitySet="WorkTypes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="AttendanceDateID" />
+            <PropertyRef Name="AttendanceWorkerID" />
+          </Key>
+          <Property Name="AttendanceDateID" Type="Int64" Nullable="false" />
+          <Property Name="AttendanceWorkerID" Type="Int32" Nullable="false" />
+          <Property Name="AttendanceWorkerStateID" Type="Int32" Nullable="false" />
+          <Property Name="AttendanceWorkerTourID" Type="Int32" Nullable="false" />
+          <Property Name="AttendanceDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Date" Relationship="Self.FK_Attendances_Dates" FromRole="Attendances" ToRole="Dates" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK_Attendances_Tours" FromRole="Attendances" ToRole="Tours" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK_Attendances_Workers" FromRole="Attendances" ToRole="Workers" />
+          <NavigationProperty Name="WorkerState" Relationship="Self.FK_Attendances_WorkerStates" FromRole="Attendances" ToRole="WorkerStates" />
+        </EntityType>
+        <EntityType Name="Date">
+          <Key>
+            <PropertyRef Name="DateID" />
+          </Key>
+          <Property Name="DateID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateIsNight" Type="Boolean" Nullable="false" />
+          <Property Name="DateDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateDetachmentID" Type="Int32" Nullable="false" />
+          <Property Name="DateIsClosed" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendances_Dates" FromRole="Dates" ToRole="Attendances" />
+          <NavigationProperty Name="Detachment" Relationship="Self.FK_Dates_Detachments" FromRole="Dates" ToRole="Detachments" />
+          <NavigationProperty Name="Changeovers" Relationship="Self.FK_Changeovers_Dates" FromRole="Dates" ToRole="Changeovers" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_Works_Dates" FromRole="Dates" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="Detachment">
+          <Key>
+            <PropertyRef Name="DetachmentID" />
+          </Key>
+          <Property Name="DetachmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DetachmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DetachmentDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dates" Relationship="Self.FK_Dates_Detachments" FromRole="Detachments" ToRole="Dates" />
+          <NavigationProperty Name="Changeovers" Relationship="Self.FK_Changeovers_Detachments" FromRole="Detachments" ToRole="Changeovers" />
+          <NavigationProperty Name="Tours" Relationship="Self.FK_Tours_Detachments" FromRole="Detachments" ToRole="Tours" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Detachments" FromRole="Detachments" ToRole="Users" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicles_Detachments" FromRole="Detachments" ToRole="Vehicles" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_Workers_Detachments" FromRole="Detachments" ToRole="Workers" />
+          <NavigationProperty Name="WorkerStates" Relationship="Self.FK_WorkerStates_Detachments" FromRole="Detachments" ToRole="WorkerStates" />
+          <NavigationProperty Name="WorkTypes" Relationship="Self.FK_WorkTypes_Detachments" FromRole="Detachments" ToRole="WorkTypes" />
+        </EntityType>
+        <EntityType Name="Changeover">
+          <Key>
+            <PropertyRef Name="ChangeoverID" />
+          </Key>
+          <Property Name="ChangeoverID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChangeoverDateID" Type="Int64" Nullable="false" />
+          <Property Name="ChangeoverVehicleID" Type="Int32" Nullable="false" />
+          <Property Name="ChangeoverWorkTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ChangeoverDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChangeoverDetachmentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Date" Relationship="Self.FK_Changeovers_Dates" FromRole="Changeovers" ToRole="Dates" />
+          <NavigationProperty Name="Detachment" Relationship="Self.FK_Changeovers_Detachments" FromRole="Changeovers" ToRole="Detachments" />
+          <NavigationProperty Name="Vehicle" Relationship="Self.FK_Changeovers_Vehicles" FromRole="Changeovers" ToRole="Vehicles" />
+          <NavigationProperty Name="WorkType" Relationship="Self.FK_Changeovers_WorkTypes" FromRole="Changeovers" ToRole="WorkTypes" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="Self.UserInRole" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="TourID" />
+          </Key>
+          <Property Name="TourID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TourStartTime" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="TourEndTime" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="TourDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TourDetachmentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendances_Tours" FromRole="Tours" ToRole="Attendances" />
+          <NavigationProperty Name="Detachment" Relationship="Self.FK_Tours_Detachments" FromRole="Tours" ToRole="Detachments" />
+          <NavigationProperty Name="Workers" Relationship="Self.WorkerInTour" FromRole="Tours" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserWorkerID" Type="Int32" />
+          <Property Name="UserDetachmentID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Detachment" Relationship="Self.FK_Users_Detachments" FromRole="Users" ToRole="Detachments" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK_Users_Workers" FromRole="Users" ToRole="Workers" />
+          <NavigationProperty Name="Roles" Relationship="Self.UserInRole" FromRole="Users" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="VehicleID" />
+          </Key>
+          <Property Name="VehicleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VehicleNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VehicleDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VehicleDetachmentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Detachment" Relationship="Self.FK_Vehicles_Detachments" FromRole="Vehicles" ToRole="Detachments" />
+          <NavigationProperty Name="Changeovers" Relationship="Self.FK_Changeovers_Vehicles" FromRole="Vehicles" ToRole="Changeovers" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_Works_Vehicles" FromRole="Vehicles" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="WorkerID" />
+          </Key>
+          <Property Name="WorkerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkerFirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkerLastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkerServiceNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkerSapNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkerServiceEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerPersonalEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerServicePhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerPersonalPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WorkerDetachmentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendances_Workers" FromRole="Workers" ToRole="Attendances" />
+          <NavigationProperty Name="Detachment" Relationship="Self.FK_Workers_Detachments" FromRole="Workers" ToRole="Detachments" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Workers" FromRole="Workers" ToRole="Users" />
+          <NavigationProperty Name="Tours" Relationship="Self.WorkerInTour" FromRole="Workers" ToRole="Tours" />
+        </EntityType>
+        <EntityType Name="WorkerState">
+          <Key>
+            <PropertyRef Name="WorkerStateID" />
+          </Key>
+          <Property Name="WorkerStateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkerStateName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkerStateDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerStateDetachmentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendances_WorkerStates" FromRole="WorkerStates" ToRole="Attendances" />
+          <NavigationProperty Name="Detachment" Relationship="Self.FK_WorkerStates_Detachments" FromRole="WorkerStates" ToRole="Detachments" />
+        </EntityType>
+        <EntityType Name="Work">
+          <Key>
+            <PropertyRef Name="WorkID" />
+          </Key>
+          <Property Name="WorkID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkVehicleID" Type="Int32" Nullable="false" />
+          <Property Name="WorkWorkTypeID" Type="Int32" Nullable="false" />
+          <Property Name="WorkDateID" Type="Int64" Nullable="false" />
+          <Property Name="WorkFaultDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkCauseDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Date" Relationship="Self.FK_Works_Dates" FromRole="Works" ToRole="Dates" />
+          <NavigationProperty Name="Vehicle" Relationship="Self.FK_Works_Vehicles" FromRole="Works" ToRole="Vehicles" />
+          <NavigationProperty Name="WorkType" Relationship="Self.FK_Works_WorkTypes" FromRole="Works" ToRole="WorkTypes" />
+        </EntityType>
+        <EntityType Name="WorkType">
+          <Key>
+            <PropertyRef Name="WorkTypeID" />
+          </Key>
+          <Property Name="WorkTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkTypeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkTypeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkTypeDetachmentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Detachment" Relationship="Self.FK_WorkTypes_Detachments" FromRole="WorkTypes" ToRole="Detachments" />
+          <NavigationProperty Name="Changeovers" Relationship="Self.FK_Changeovers_WorkTypes" FromRole="WorkTypes" ToRole="Changeovers" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_Works_WorkTypes" FromRole="WorkTypes" ToRole="Works" />
+        </EntityType>
+        <Association Name="FK_Attendances_Dates">
+          <End Role="Dates" Type="Self.Date" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Attendances" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dates">
+              <PropertyRef Name="DateID" />
+            </Principal>
+            <Dependent Role="Attendances">
+              <PropertyRef Name="AttendanceDateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendances_Tours">
+          <End Role="Tours" Type="Self.Tour" Multiplicity="1" />
+          <End Role="Attendances" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="TourID" />
+            </Principal>
+            <Dependent Role="Attendances">
+              <PropertyRef Name="AttendanceWorkerTourID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendances_Workers">
+          <End Role="Workers" Type="Self.Worker" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Attendances" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="WorkerID" />
+            </Principal>
+            <Dependent Role="Attendances">
+              <PropertyRef Name="AttendanceWorkerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendances_WorkerStates">
+          <End Role="WorkerStates" Type="Self.WorkerState" Multiplicity="1" />
+          <End Role="Attendances" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkerStates">
+              <PropertyRef Name="WorkerStateID" />
+            </Principal>
+            <Dependent Role="Attendances">
+              <PropertyRef Name="AttendanceWorkerStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dates_Detachments">
+          <End Role="Detachments" Type="Self.Detachment" Multiplicity="1" />
+          <End Role="Dates" Type="Self.Date" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="Dates">
+              <PropertyRef Name="DateDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Changeovers_Dates">
+          <End Role="Dates" Type="Self.Date" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Changeovers" Type="Self.Changeover" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dates">
+              <PropertyRef Name="DateID" />
+            </Principal>
+            <Dependent Role="Changeovers">
+              <PropertyRef Name="ChangeoverDateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Dates">
+          <End Role="Dates" Type="Self.Date" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Works" Type="Self.Work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dates">
+              <PropertyRef Name="DateID" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="WorkDateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Changeovers_Detachments">
+          <End Role="Detachments" Type="Self.Detachment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Changeovers" Type="Self.Changeover" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="Changeovers">
+              <PropertyRef Name="ChangeoverDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tours_Detachments">
+          <End Role="Detachments" Type="Self.Detachment" Multiplicity="1" />
+          <End Role="Tours" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="Tours">
+              <PropertyRef Name="TourDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Detachments">
+          <End Role="Detachments" Type="Self.Detachment" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicles_Detachments">
+          <End Role="Detachments" Type="Self.Detachment" Multiplicity="1" />
+          <End Role="Vehicles" Type="Self.Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="Vehicles">
+              <PropertyRef Name="VehicleDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workers_Detachments">
+          <End Role="Detachments" Type="Self.Detachment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Workers" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="WorkerDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerStates_Detachments">
+          <End Role="Detachments" Type="Self.Detachment" Multiplicity="1" />
+          <End Role="WorkerStates" Type="Self.WorkerState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="WorkerStates">
+              <PropertyRef Name="WorkerStateDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkTypes_Detachments">
+          <End Role="Detachments" Type="Self.Detachment" Multiplicity="1" />
+          <End Role="WorkTypes" Type="Self.WorkType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detachments">
+              <PropertyRef Name="DetachmentID" />
+            </Principal>
+            <Dependent Role="WorkTypes">
+              <PropertyRef Name="WorkTypeDetachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Changeovers_Vehicles">
+          <End Role="Vehicles" Type="Self.Vehicle" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Changeovers" Type="Self.Changeover" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="VehicleID" />
+            </Principal>
+            <Dependent Role="Changeovers">
+              <PropertyRef Name="ChangeoverVehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Changeovers_WorkTypes">
+          <End Role="WorkTypes" Type="Self.WorkType" Multiplicity="1" />
+          <End Role="Changeovers" Type="Self.Changeover" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkTypes">
+              <PropertyRef Name="WorkTypeID" />
+            </Principal>
+            <Dependent Role="Changeovers">
+              <PropertyRef Name="ChangeoverWorkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Workers">
+          <End Role="Workers" Type="Self.Worker" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="WorkerID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserWorkerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Vehicles">
+          <End Role="Vehicles" Type="Self.Vehicle" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Works" Type="Self.Work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="VehicleID" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="WorkVehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_WorkTypes">
+          <End Role="WorkTypes" Type="Self.WorkType" Multiplicity="1" />
+          <End Role="Works" Type="Self.Work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkTypes">
+              <PropertyRef Name="WorkTypeID" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="WorkWorkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserInRole">
+          <End Role="Roles" Type="Self.Role" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <Association Name="WorkerInTour">
+          <End Role="Tours" Type="Self.Tour" Multiplicity="*" />
+          <End Role="Workers" Type="Self.Worker" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Attendances" EntityType="Self.Attendance" />
+          <EntitySet Name="Dates" EntityType="Self.Date" />
+          <EntitySet Name="Detachments" EntityType="Self.Detachment" />
+          <EntitySet Name="Changeovers" EntityType="Self.Changeover" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Tours" EntityType="Self.Tour" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
+          <EntitySet Name="Workers" EntityType="Self.Worker" />
+          <EntitySet Name="WorkerStates" EntityType="Self.WorkerState" />
+          <EntitySet Name="Works" EntityType="Self.Work" />
+          <EntitySet Name="WorkTypes" EntityType="Self.WorkType" />
+          <AssociationSet Name="FK_Attendances_Dates" Association="Self.FK_Attendances_Dates">
+            <End Role="Dates" EntitySet="Dates" />
+            <End Role="Attendances" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendances_Tours" Association="Self.FK_Attendances_Tours">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="Attendances" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendances_Workers" Association="Self.FK_Attendances_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Attendances" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendances_WorkerStates" Association="Self.FK_Attendances_WorkerStates">
+            <End Role="WorkerStates" EntitySet="WorkerStates" />
+            <End Role="Attendances" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dates_Detachments" Association="Self.FK_Dates_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="Dates" EntitySet="Dates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Changeovers_Dates" Association="Self.FK_Changeovers_Dates">
+            <End Role="Dates" EntitySet="Dates" />
+            <End Role="Changeovers" EntitySet="Changeovers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Dates" Association="Self.FK_Works_Dates">
+            <End Role="Dates" EntitySet="Dates" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Changeovers_Detachments" Association="Self.FK_Changeovers_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="Changeovers" EntitySet="Changeovers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tours_Detachments" Association="Self.FK_Tours_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="Tours" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Detachments" Association="Self.FK_Users_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Detachments" Association="Self.FK_Vehicles_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="Vehicles" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workers_Detachments" Association="Self.FK_Workers_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerStates_Detachments" Association="Self.FK_WorkerStates_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="WorkerStates" EntitySet="WorkerStates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkTypes_Detachments" Association="Self.FK_WorkTypes_Detachments">
+            <End Role="Detachments" EntitySet="Detachments" />
+            <End Role="WorkTypes" EntitySet="WorkTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Changeovers_Vehicles" Association="Self.FK_Changeovers_Vehicles">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Changeovers" EntitySet="Changeovers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Changeovers_WorkTypes" Association="Self.FK_Changeovers_WorkTypes">
+            <End Role="WorkTypes" EntitySet="WorkTypes" />
+            <End Role="Changeovers" EntitySet="Changeovers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Workers" Association="Self.FK_Users_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Vehicles" Association="Self.FK_Works_Vehicles">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_WorkTypes" Association="Self.FK_Works_WorkTypes">
+            <End Role="WorkTypes" EntitySet="WorkTypes" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="UserInRole" Association="Self.UserInRole">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="WorkerInTour" Association="Self.WorkerInTour">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <FunctionImport Name="Months" ReturnType="Collection(Int32)">
+            <Parameter Name="year" Mode="In" Type="Int32" />
+            <Parameter Name="detachmentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Years" ReturnType="Collection(Int32)">
+            <Parameter Name="detachmentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Attendances">
+            <EntityTypeMapping TypeName="Model.Attendance">
+              <MappingFragment StoreEntitySet="Attendances">
+                <ScalarProperty Name="AttendanceDateID" ColumnName="AttendanceDateID" />
+                <ScalarProperty Name="AttendanceWorkerID" ColumnName="AttendanceWorkerID" />
+                <ScalarProperty Name="AttendanceWorkerStateID" ColumnName="AttendanceWorkerStateID" />
+                <ScalarProperty Name="AttendanceWorkerTourID" ColumnName="AttendanceWorkerTourID" />
+                <ScalarProperty Name="AttendanceDescription" ColumnName="AttendanceDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dates">
+            <EntityTypeMapping TypeName="Model.Date">
+              <MappingFragment StoreEntitySet="Dates">
+                <ScalarProperty Name="DateID" ColumnName="DateID" />
+                <ScalarProperty Name="DateDate" ColumnName="DateDate" />
+                <ScalarProperty Name="DateIsNight" ColumnName="DateIsNight" />
+                <ScalarProperty Name="DateDescription" ColumnName="DateDescription" />
+                <ScalarProperty Name="DateDetachmentID" ColumnName="DateDetachmentID" />
+                <ScalarProperty Name="DateIsClosed" ColumnName="DateIsClosed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detachments">
+            <EntityTypeMapping TypeName="Model.Detachment">
+              <MappingFragment StoreEntitySet="Detachments">
+                <ScalarProperty Name="DetachmentID" ColumnName="DetachmentID" />
+                <ScalarProperty Name="DetachmentName" ColumnName="DetachmentName" />
+                <ScalarProperty Name="DetachmentDescription" ColumnName="DetachmentDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Changeovers">
+            <EntityTypeMapping TypeName="Model.Changeover">
+              <MappingFragment StoreEntitySet="Changeovers">
+                <ScalarProperty Name="ChangeoverID" ColumnName="ChangeoverID" />
+                <ScalarProperty Name="ChangeoverDateID" ColumnName="ChangeoverDateID" />
+                <ScalarProperty Name="ChangeoverVehicleID" ColumnName="ChangeoverVehicleID" />
+                <ScalarProperty Name="ChangeoverWorkTypeID" ColumnName="ChangeoverWorkTypeID" />
+                <ScalarProperty Name="ChangeoverDescription" ColumnName="ChangeoverDescription" />
+                <ScalarProperty Name="ChangeoverDetachmentID" ColumnName="ChangeoverDetachmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="Model.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tours">
+            <EntityTypeMapping TypeName="Model.Tour">
+              <MappingFragment StoreEntitySet="Tours">
+                <ScalarProperty Name="TourID" ColumnName="TourID" />
+                <ScalarProperty Name="TourStartTime" ColumnName="TourStartTime" />
+                <ScalarProperty Name="TourEndTime" ColumnName="TourEndTime" />
+                <ScalarProperty Name="TourDescription" ColumnName="TourDescription" />
+                <ScalarProperty Name="TourDetachmentID" ColumnName="TourDetachmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Model.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserWorkerID" ColumnName="UserWorkerID" />
+                <ScalarProperty Name="UserDetachmentID" ColumnName="UserDetachmentID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserDescription" ColumnName="UserDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="Model.Vehicle">
+              <MappingFragment StoreEntitySet="Vehicles">
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+                <ScalarProperty Name="VehicleDescription" ColumnName="VehicleDescription" />
+                <ScalarProperty Name="VehicleDetachmentID" ColumnName="VehicleDetachmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workers">
+            <EntityTypeMapping TypeName="Model.Worker">
+              <MappingFragment StoreEntitySet="Workers">
+                <ScalarProperty Name="WorkerID" ColumnName="WorkerID" />
+                <ScalarProperty Name="WorkerFirstName" ColumnName="WorkerFirstName" />
+                <ScalarProperty Name="WorkerLastName" ColumnName="WorkerLastName" />
+                <ScalarProperty Name="WorkerServiceNumber" ColumnName="WorkerServiceNumber" />
+                <ScalarProperty Name="WorkerSapNumber" ColumnName="WorkerSapNumber" />
+                <ScalarProperty Name="WorkerServiceEmail" ColumnName="WorkerServiceEmail" />
+                <ScalarProperty Name="WorkerPersonalEmail" ColumnName="WorkerPersonalEmail" />
+                <ScalarProperty Name="WorkerServicePhone" ColumnName="WorkerServicePhone" />
+                <ScalarProperty Name="WorkerPersonalPhone" ColumnName="WorkerPersonalPhone" />
+                <ScalarProperty Name="WorkerDescription" ColumnName="WorkerDescription" />
+                <ScalarProperty Name="WorkerPhoto" ColumnName="WorkerPhoto" />
+                <ScalarProperty Name="WorkerDetachmentID" ColumnName="WorkerDetachmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkerStates">
+            <EntityTypeMapping TypeName="Model.WorkerState">
+              <MappingFragment StoreEntitySet="WorkerStates">
+                <ScalarProperty Name="WorkerStateID" ColumnName="WorkerStateID" />
+                <ScalarProperty Name="WorkerStateName" ColumnName="WorkerStateName" />
+                <ScalarProperty Name="WorkerStateDescription" ColumnName="WorkerStateDescription" />
+                <ScalarProperty Name="WorkerStateDetachmentID" ColumnName="WorkerStateDetachmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Works">
+            <EntityTypeMapping TypeName="Model.Work">
+              <MappingFragment StoreEntitySet="Works">
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="WorkVehicleID" ColumnName="WorkVehicleID" />
+                <ScalarProperty Name="WorkWorkTypeID" ColumnName="WorkWorkTypeID" />
+                <ScalarProperty Name="WorkDateID" ColumnName="WorkDateID" />
+                <ScalarProperty Name="WorkFaultDescription" ColumnName="WorkFaultDescription" />
+                <ScalarProperty Name="WorkCauseDescription" ColumnName="WorkCauseDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkTypes">
+            <EntityTypeMapping TypeName="Model.WorkType">
+              <MappingFragment StoreEntitySet="WorkTypes">
+                <ScalarProperty Name="WorkTypeID" ColumnName="WorkTypeID" />
+                <ScalarProperty Name="WorkTypeName" ColumnName="WorkTypeName" />
+                <ScalarProperty Name="WorkTypeDescription" ColumnName="WorkTypeDescription" />
+                <ScalarProperty Name="WorkTypeDetachmentID" ColumnName="WorkTypeDetachmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserInRole" TypeName="Model.UserInRole" StoreEntitySet="UserInRole">
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="RoleID" ColumnName="UserInRoleRoleID" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="UserID" ColumnName="UserInRoleUserID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="WorkerInTour" TypeName="Model.WorkerInTour" StoreEntitySet="WorkerInTour">
+            <EndProperty Name="Tours">
+              <ScalarProperty Name="TourID" ColumnName="WorkerInTourTourID" />
+            </EndProperty>
+            <EndProperty Name="Workers">
+              <ScalarProperty Name="WorkerID" ColumnName="WorkerInTourWorkerID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="Months" FunctionName="Model.Store.Months" />
+          <FunctionImportMapping FunctionImportName="Years" FunctionName="Model.Store.Years" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

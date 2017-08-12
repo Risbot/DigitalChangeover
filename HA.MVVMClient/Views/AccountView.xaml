@@ -1,0 +1,57 @@
+﻿<Window x:Class="HA.MVVMClient.Views.AccountView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:adr="clr-namespace:HA.MVVMClient.Infrastructure"
+        xmlns:pass ="clr-namespace:HA.MVVMClient.Infrastructure"
+        Title="Můj účet" Height="250" Width="400" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" ResizeMode="NoResize" Icon="/HA.MVVMClient;component/Images/key.png">
+   
+    <adr:ProgressAdorner IsAdornerVisible="{Binding Path=Busy}">
+        <adr:ProgressAdorner.AdornerContent>
+            <Border>
+                <Border.Background>
+                    <SolidColorBrush  Opacity="0.5" Color="Azure"></SolidColorBrush>
+                </Border.Background>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14">Zpracovávám...</TextBlock>
+            </Border>
+        </adr:ProgressAdorner.AdornerContent>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" >Uživatelské jméno:</Label>
+            <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path=UserName}"></TextBlock>
+            <Label Grid.Row="2">Oddělení:</Label>
+            <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path=Detachment}"></TextBlock>
+            <Label Grid.Row="3">Staré heslo:</Label>
+            <PasswordBox  pass:PasswordBoxHelper.IsBinding="true"  pass:PasswordBoxHelper.PasswordText="{Binding Path=OldPassword, Mode=TwoWay, ValidatesOnDataErrors=True}" Grid.Row="3" Grid.Column="1"></PasswordBox>
+            <Label Grid.Row="4">Nové heslo:</Label>
+            <PasswordBox  pass:PasswordBoxHelper.IsBinding="true"  pass:PasswordBoxHelper.PasswordText="{Binding Path=NewPassword, Mode=TwoWay, ValidatesOnDataErrors=True}" Grid.Row="4" Grid.Column="1"></PasswordBox>
+            <Label Grid.Row="5">Potvrzení hesla:</Label>
+            <PasswordBox  pass:PasswordBoxHelper.IsBinding="true"  pass:PasswordBoxHelper.PasswordText="{Binding Path=ConfirmPassword, Mode=TwoWay, ValidatesOnDataErrors=True}" Grid.Row="5" Grid.Column="1"></PasswordBox>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" Grid.ColumnSpan="3" Height="15pt" Text="{Binding Path=Status}" Foreground="Red"></TextBlock>
+            <StackPanel HorizontalAlignment="Right" Grid.Row="8" Grid.Column="2" Orientation="Horizontal">
+                <Button  Command="{Binding Path=ChangeCommand}" Content="Změnit heslo"></Button>
+            </StackPanel>
+            <GroupBox Grid.Row="1" Grid.Column="2" Grid.RowSpan="5" Header="Oprávnění">
+                <StackPanel>
+                    <CheckBox IsEnabled="False" IsChecked="{Binding Path=WriteAutorization}">Zápis</CheckBox>
+                    <CheckBox IsEnabled="False" IsChecked="{Binding Path=MasterAutorization}">Mistr</CheckBox>
+                    <CheckBox IsEnabled="False" IsChecked="{Binding Path=AdminAutorization}">Administrátor</CheckBox>        
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+    </adr:ProgressAdorner>
+</Window>

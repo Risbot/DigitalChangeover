@@ -1,0 +1,61 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Help.chm
+Contents file=Contents.hhc
+Default Window=MainWindow
+Default topic=HTML\Index.html
+Display compile progress=No
+Full-text search=Yes
+Index file=Help.hhk
+Language=0x405 Èeština (Èeská republika)
+
+[WINDOWS]
+MainWindow="Nápovìda k programu Digitální pøedavka","Contents.hhc","Help.hhk","HTML\Index.html",,,,,,0x62520,,0x304e,[509,246,1409,846],,,,,,,0
+
+
+[FILES]
+HTML\About.html
+HTML\Account.html
+HTML\AddAttendance.html
+HTML\Attendance.html
+HTML\CreateAccount.html
+HTML\CreateDetachment.html
+HTML\CreateTour.html
+HTML\CreateVehicle.html
+HTML\CreateWorker.html
+HTML\CreateWorkerState.html
+HTML\CreateWorkType.html
+HTML\Dates.html
+HTML\DeleteAccount.html
+HTML\DeleteDetachment.html
+HTML\DeleteTour.html
+HTML\DeleteVehicle.html
+HTML\DeleteWorker.html
+HTML\DeleteWorkerState.html
+HTML\DeleteWorkType.html
+HTML\Detachment.html
+HTML\Changeovers.html
+HTML\ChangePassword.html
+HTML\Index.html
+HTML\Preview.html
+HTML\Print.html
+HTML\RemoveAttendance.html
+HTML\ResetPassword.html
+HTML\SearchWork.html
+HTML\Tour.html
+HTML\UpdateAccount.html
+HTML\UpdateAttendance.html
+HTML\UpdateDetachment.html
+HTML\UpdateTour.html
+HTML\UpdateVehicle.html
+HTML\UpdateWorker.html
+HTML\UpdateWorkerState.html
+HTML\UpdateWorkType.html
+HTML\Vehicle.html
+HTML\Worker.html
+HTML\WorkerState.html
+HTML\Works.html
+HTML\WorkType.html
+
+[INFOTYPES]
+

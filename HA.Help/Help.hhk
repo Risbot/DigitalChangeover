@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Doch&aacute;zka">
+		<param name="Name" value="Docházka">
+		<param name="Local" value="HTML\Attendance.html">
+		<param name="Name" value="Editace zamìstnace v docházce">
+		<param name="Local" value="HTML\UpdateAttendance.html">
+		<param name="Name" value="Odebráni zamìstnance z docházky">
+		<param name="Local" value="HTML\RemoveAttendance.html">
+		<param name="Name" value="Pøidáni zamìstnance do docházky">
+		<param name="Local" value="HTML\AddAttendance.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Editace">
+		<param name="Name" value="Editace oddìlení">
+		<param name="Local" value="HTML\UpdateDetachment.html">
+		<param name="Name" value="Editace statusu">
+		<param name="Local" value="HTML\UpdateWorkerState.html">
+		<param name="Name" value="Editace turnusu">
+		<param name="Local" value="HTML\UpdateTour.html">
+		<param name="Name" value="Editace typu oprav">
+		<param name="Local" value="HTML\UpdateWorkType.html">
+		<param name="Name" value="Editace vozidla">
+		<param name="Local" value="HTML\UpdateVehicle.html">
+		<param name="Name" value="Editace zamìstnace v docházce">
+		<param name="Local" value="HTML\UpdateAttendance.html">
+		<param name="Name" value="Editace zamìstnance">
+		<param name="Local" value="HTML\UpdateWorker.html">
+		<param name="Name" value="Editace úètu">
+		<param name="Local" value="HTML\UpdateAccount.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Heslo">
+		<param name="Name" value="Resetování hesla">
+		<param name="Local" value="HTML\ResetPassword.html">
+		<param name="Name" value="Zmìna hesla">
+		<param name="Local" value="HTML\ChangePassword.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Hledat">
+		<param name="Name" value="Hledaní práce">
+		<param name="Local" value="HTML\SearchWork.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="N&aacute;hled">
+		<param name="Name" value="Náhled dokumentu">
+		<param name="Local" value="HTML\Preview.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Odd&igrave;len&iacute;">
+		<param name="Name" value="Editace oddìlení">
+		<param name="Local" value="HTML\UpdateDetachment.html">
+		<param name="Name" value="Odebráni oddìlení">
+		<param name="Local" value="HTML\DeleteDetachment.html">
+		<param name="Name" value="Oddìlení">
+		<param name="Local" value="HTML\Detachment.html">
+		<param name="Name" value="Založení oddìlení">
+		<param name="Local" value="HTML\CreateDetachment.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Odebr&aacute;ni">
+		<param name="Name" value="Odebráni oddìlení">
+		<param name="Local" value="HTML\DeleteDetachment.html">
+		<param name="Name" value="Odebráni statusu">
+		<param name="Local" value="HTML\DeleteWorkerState.html">
+		<param name="Name" value="Odebráni turnusu">
+		<param name="Local" value="HTML\DeleteTour.html">
+		<param name="Name" value="Odebráni typu oprav">
+		<param name="Local" value="HTML\DeleteWorkType.html">
+		<param name="Name" value="Odebráni vozidla">
+		<param name="Local" value="HTML\DeleteVehicle.html">
+		<param name="Name" value="Odebráni zamìstnance">
+		<param name="Local" value="HTML\DeleteWorker.html">
+		<param name="Name" value="Odebráni zamìstnance z docházky">
+		<param name="Local" value="HTML\RemoveAttendance.html">
+		<param name="Name" value="Odebráni úètu">
+		<param name="Local" value="HTML\DeleteAccount.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Pr&aacute;ce">
+		<param name="Name" value="Práce">
+		<param name="Local" value="HTML\Works.html">
+		<param name="Name" value="Hledaní práce">
+		<param name="Local" value="HTML\SearchWork.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="P&oslash;ed&aacute;vka">
+		<param name="Name" value="Pøedávka">
+		<param name="Local" value="HTML\Changeovers.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Sm&igrave;ny">
+		<param name="Name" value="Smìny">
+		<param name="Local" value="HTML\Dates.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Statusy">
+		<param name="Name" value="Statusy">
+		<param name="Local" value="HTML\WorkerState.html">
+		<param name="Name" value="Editace statusu">
+		<param name="Local" value="HTML\UpdateWorkerState.html">
+		<param name="Name" value="Odebráni statusu">
+		<param name="Local" value="HTML\DeleteWorkerState.html">
+		<param name="Name" value="Založení statusu">
+		<param name="Local" value="HTML\CreateWorkerState.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Tisk">
+		<param name="Name" value="Náhled dokumentu">
+		<param name="Local" value="HTML\Preview.html">
+		<param name="Name" value="Tisk dokumentu">
+		<param name="Local" value="HTML\Print.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Turnusy">
+		<param name="Name" value="Turnusy">
+		<param name="Local" value="HTML\Tour.html">
+		<param name="Name" value="Editace turnusu">
+		<param name="Local" value="HTML\UpdateTour.html">
+		<param name="Name" value="Odebráni turnusu">
+		<param name="Local" value="HTML\DeleteTour.html">
+		<param name="Name" value="Založeni turnusu">
+		<param name="Local" value="HTML\CreateTour.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Typy oprav">
+		<param name="Name" value="Typy oprav">
+		<param name="Local" value="HTML\WorkType.html">
+		<param name="Name" value="Editace typu oprav">
+		<param name="Local" value="HTML\UpdateWorkType.html">
+		<param name="Name" value="Odebráni typu oprav">
+		<param name="Local" value="HTML\DeleteWorkType.html">
+		<param name="Name" value="Založení typu oprav">
+		<param name="Local" value="HTML\CreateWorkType.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="&Uacute;&egrave;ety">
+		<param name="Name" value="Správa úètu">
+		<param name="Local" value="HTML\Account.html">
+		<param name="Name" value="Odebráni úètu">
+		<param name="Local" value="HTML\DeleteAccount.html">
+		<param name="Name" value="Editace úètu">
+		<param name="Local" value="HTML\UpdateAccount.html">
+		<param name="Name" value="Resetování hesla">
+		<param name="Local" value="HTML\ResetPassword.html">
+		<param name="Name" value="Založené úctu">
+		<param name="Local" value="HTML\CreateAccount.html">
+		<param name="Name" value="Zmìna hesla">
+		<param name="Local" value="HTML\ChangePassword.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Vozidla">
+		<param name="Name" value="Vozidla">
+		<param name="Local" value="HTML\Vehicle.html">
+		<param name="Name" value="Založení vozidla">
+		<param name="Local" value="HTML\CreateVehicle.html">
+		<param name="Name" value="Editace vozidla">
+		<param name="Local" value="HTML\UpdateVehicle.html">
+		<param name="Name" value="Odebráni vozidla">
+		<param name="Local" value="HTML\DeleteVehicle.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Založeni">
+		<param name="Name" value="Založeni turnusu">
+		<param name="Local" value="HTML\CreateTour.html">
+		<param name="Name" value="Založené úctu">
+		<param name="Local" value="HTML\CreateAccount.html">
+		<param name="Name" value="Založení oddìlení">
+		<param name="Local" value="HTML\CreateDetachment.html">
+		<param name="Name" value="Založení statusu">
+		<param name="Local" value="HTML\CreateWorkerState.html">
+		<param name="Name" value="Založení typu oprav">
+		<param name="Local" value="HTML\CreateWorkType.html">
+		<param name="Name" value="Založení vozidla">
+		<param name="Local" value="HTML\CreateVehicle.html">
+		<param name="Name" value="Založení zamìstnance">
+		<param name="Local" value="HTML\CreateWorker.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Zam&igrave;stnanci">
+		<param name="Name" value="Editace zamìstnance">
+		<param name="Local" value="HTML\UpdateWorker.html">
+		<param name="Name" value="Odebráni zamìstnance">
+		<param name="Local" value="HTML\DeleteWorker.html">
+		<param name="Name" value="Založení zamìstnance">
+		<param name="Local" value="HTML\CreateWorker.html">
+		<param name="Name" value="Zamìstnanci">
+		<param name="Local" value="HTML\Worker.html">
+		</OBJECT>
+</UL>
+</BODY></HTML>

@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Digit&aacute;ln&iacute; p&oslash;ed&aacute;vka">
+		<param name="Local" value="HTML\Index.html">
+		<param name="ImageNumber" value="17">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Soubor">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Tisk">
+			<param name="Local" value="HTML\Print.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="N&aacute;hled">
+			<param name="Local" value="HTML\Preview.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Okna">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Odd&igrave;len&iacute;">
+			<param name="Local" value="HTML\Detachment.html">
+			<param name="ImageNumber" value="1">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Založeni odd&igrave;len&iacute;">
+				<param name="Local" value="HTML\CreateDetachment.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Editace odd&igrave;len&iacute;">
+				<param name="Local" value="HTML\UpdateDetachment.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Odebr&aacute;ni odd&igrave;len&iacute;">
+				<param name="Local" value="HTML\DeleteDetachment.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Vozidla">
+			<param name="Local" value="HTML\Vehicle.html">
+			<param name="ImageNumber" value="1">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Založeni vozidla">
+				<param name="Local" value="HTML\CreateVehicle.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Editace vozidla">
+				<param name="Local" value="HTML\UpdateVehicle.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Odebr&aacute;ni vozidla">
+				<param name="Local" value="HTML\DeleteVehicle.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Typy oprav">
+			<param name="Local" value="HTML\WorkType.html">
+			<param name="ImageNumber" value="1">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Založeni typu oprav">
+				<param name="Local" value="HTML\CreateWorkType.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Editace typu oprav">
+				<param name="Local" value="HTML\UpdateWorkType.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Odebr&aacute;ni typu oprav">
+				<param name="Local" value="HTML\DeleteWorkType.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Zam&igrave;stnanci">
+			<param name="Local" value="HTML\Worker.html">
+			<param name="ImageNumber" value="1">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Založeni zam&igrave;stnance">
+				<param name="Local" value="HTML\CreateWorker.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Editace zam&igrave;stnance">
+				<param name="Local" value="HTML\UpdateWorker.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Odebr&aacute;ni zam&igrave;stnance">
+				<param name="Local" value="HTML\DeleteWorker.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Turnusy">
+			<param name="Local" value="HTML\Tour.html">
+			<param name="ImageNumber" value="1">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Založeni turnusu">
+				<param name="Local" value="HTML\CreateTour.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Editace turnusu">
+				<param name="Local" value="HTML\UpdateTour.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Odebr&aacute;ni turnusu">
+				<param name="Local" value="HTML\DeleteTour.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Statusy">
+			<param name="Local" value="HTML\WorkerState.html">
+			<param name="ImageNumber" value="1">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Založeni statusu">
+				<param name="Local" value="HTML\CreateWorkerState.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Editace statusu">
+				<param name="Local" value="HTML\UpdateWorkerState.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Odebr&aacute;ni statusu">
+				<param name="Local" value="HTML\DeleteWorkerState.html">
+				</OBJECT>
+		</UL>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Hledat">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Hledan&iacute; pr&aacute;ce">
+			<param name="Local" value="HTML\SearchWork.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="N&aacute;stroje">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Sm&igrave;ny">
+			<param name="Local" value="HTML\Dates.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Pr&aacute;ce">
+			<param name="Local" value="HTML\Works.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="P&oslash;ed&aacute;vka">
+			<param name="Local" value="HTML\Changeovers.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Doch&aacute;zka">
+			<param name="Local" value="HTML\Attendance.html">
+			<param name="ImageNumber" value="1">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="P&oslash;id&aacute;ni zam&igrave;stnance do doch&aacute;zky">
+				<param name="Local" value="HTML\AddAttendance.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Editace zam&igrave;stnace v doch&aacute;zce">
+				<param name="Local" value="HTML\UpdateAttendance.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Odebr&aacute;ni zam&igrave;stnance z doch&aacute;zky">
+				<param name="Local" value="HTML\RemoveAttendance.html">
+				</OBJECT>
+		</UL>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Administrativa">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Spr&aacute;va &uacute;&egrave;tu">
+			<param name="Local" value="HTML\Account.html">
+			<param name="ImageNumber" value="1">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Založeni &uacute;&egrave;tu">
+				<param name="Local" value="HTML\CreateAccount.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Odebr&aacute;ni &uacute;&egrave;tu">
+				<param name="Local" value="HTML\DeleteAccount.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Editace &uacute;&egrave;tu">
+				<param name="Local" value="HTML\UpdateAccount.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Zm&igrave;na hesla">
+			<param name="Local" value="HTML\ChangePassword.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="O programu">
+		<param name="Local" value="HTML\about.html">
+		<param name="ImageNumber" value="17">
+		</OBJECT>
+</UL>
+</BODY></HTML>
